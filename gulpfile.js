@@ -6,8 +6,7 @@ const cleanCSS = require("gulp-clean-css");
 const postcss = require("gulp-postcss");
 const browsersync = require("browser-sync");
 
-const dist = "./dist";  
- 
+const dist = "./dist";
 
 gulp.task("copy-html", () => {
 	return gulp
@@ -18,14 +17,14 @@ gulp.task("copy-html", () => {
 
 gulp.task("build-js", () => {
 	return gulp
-		.src("./src/js/main.js")
+		.src("./src/js/script.js")
 		.pipe(
 			webpack({
 				mode: "development",
 				output: {
 					filename: "script.js",
 				},
-				watch: false,
+				watch: true,
 				devtool: "source-map",
 				module: {
 					rules: [
@@ -67,6 +66,9 @@ gulp.task("build-sass", () => {
 gulp.task("copy-assets", () => {
 	gulp.src("./src/icons/**/*.*").pipe(gulp.dest(dist + "/icons"));
 
+	gulp.src("./src/*.json")
+        .pipe(gulp.dest(dist));
+
 	return gulp
 		.src("./src/img/**/*.*")
 		.pipe(gulp.dest(dist + "/img"))
@@ -76,7 +78,7 @@ gulp.task("copy-assets", () => {
 gulp.task("watch", () => {
 	browsersync.init({
 		server: "./dist/",
-		port: 4000,
+		port: 3000,
 		notify: true,
 	});
 
@@ -98,7 +100,7 @@ gulp.task("prod", () => {
 	gulp.src("./src/icons/**/*.*").pipe(gulp.dest(dist + "/icons"));
 
 	gulp
-		.src("./src/js/main.js")
+		.src("./src/js/script.js")
 		.pipe(
 			webpack({
 				mode: "production",
