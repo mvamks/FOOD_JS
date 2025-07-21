@@ -9,7 +9,7 @@
 		"start": "npm-run-all --parallel server json",
 		"server": "gulp",
 		"json": "json-server --watch db.json --port 3001",
-		"predeploy": "npm run build",
+		"predeploy": "npm run build:prod",
 		"deploy": "gh-pages -d dist"
 	},
 	"author": "",
