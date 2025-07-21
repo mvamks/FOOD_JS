@@ -1,13 +1,16 @@
 // назначаем глобальный обработчик событий на весь скрипт
+require('es6-promise').polyfill();
+import 'nodelist-foreach-polyfill';
 
-        import tabs from './modules/tabs';
-        import modals from './modules/modals';  
-        import timers from './modules/timers';
-        import calcs from './modules/calcs';
-        import cards from './modules/cards';
-        import forms from './modules/forms';
-        import sliders from './modules/sliders';
-        import {openModal} from './modules/modals';
+import tabs from './modules/tabs';
+import modals from './modules/modals';  
+import timers from './modules/timers';
+import calcs from './modules/calcs';
+import cards from './modules/cards';
+import forms from './modules/forms';
+import sliders from './modules/sliders';
+import {openModal} from './modules/modals';
+
         
 
 

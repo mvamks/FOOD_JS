@@ -7,7 +7,8 @@ module.exports = {
   entry: './src/js/script.js',
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/dist/js'
+    path: __dirname + '/dist/js',
+    publicPath: '/js/'
   },
   watch: true,
 
@@ -21,7 +22,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-          presets: ['@babel/preset-env']
+            presets: [['@babel/preset-env', {
+              debug: true,
+              corejs: 3, 
+              useBuiltIns: "usage"
+            }]]
           }
         }
       },

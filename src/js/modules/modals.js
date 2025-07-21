@@ -7,6 +7,7 @@ function openModal(modalSelector, modalTimerId) {
     
     if(modalTimerId) {
         clearInterval(modalTimerId); // если клиент уже открывал модальное окно, оно больше не откроется, функция запуска таймера const modalTimerId  строка 175
+        
     }
 }
 
@@ -66,10 +67,10 @@ function modals(triggerSelector, modalSelector, modalTimerId) {
     // функционал для запуска модального окна при прокрутке сайта в конец, и после повторной прокрутки оно больше не открывается
 
     function showModalByScroll() {
-        if(modalTimerId) {
+       /*  if(modalTimerId) {
             window.removeEventListener('scroll', showModalByScroll);
             return; 
-        }
+        } */
         if(window.scrollY + document.documentElement.clientHeight >= document.documentElement.scrollHeight - 1) {
             openModal(modalSelector, modalTimerId);
             window.removeEventListener('scroll', showModalByScroll); //удаление повторного открытия модального окна при повторной прокрутке сайта
